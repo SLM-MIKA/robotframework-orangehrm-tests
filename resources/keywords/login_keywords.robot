@@ -5,10 +5,11 @@ Resource   ../config/config.robot
 
 *** Keywords ***
 Open OrangeHRM Login Page
-    Open Browser    ${URL}    chrome
-...    options=add_argument(--headless)
-...    options=add_argument(--no-sandbox)
-...    options=add_argument(--disable-dev-shm-usage)
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Open Browser    ${URL}    chrome    options=${options}
     Maximize Browser Window
 
 Login With Credentials
