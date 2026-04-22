@@ -5,7 +5,10 @@ Resource   ../config/config.robot
 
 *** Keywords ***
 Open OrangeHRM Login Page
-    Open Browser    ${URL}    ${BROWSER}
+    Open Browser    ${URL}    chrome
+...    options=add_argument(--headless)
+...    options=add_argument(--no-sandbox)
+...    options=add_argument(--disable-dev-shm-usage)
     Maximize Browser Window
 
 Login With Credentials
