@@ -1,10 +1,9 @@
-name: Robot Framework CI
-
+name: Robot Framework 
 on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
