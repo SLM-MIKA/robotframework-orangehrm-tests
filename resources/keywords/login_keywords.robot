@@ -14,7 +14,11 @@ Open OrangeHRM Login Page
 
 Login With Credentials
     [Arguments]    ${username}    ${password}
-    Wait Until Element Is Visible    ${USERNAME_INPUT}    10s
-    Input Text    ${USERNAME_INPUT}    ${username}
-    Input Text    ${PASSWORD_INPUT}    ${password}
-    Click Button   ${LOGIN_BUTTON}
+    Wait Until Page Contains Element    xpath=//input[@placeholder='Username']    20s
+    Wait Until Element Is Visible       xpath=//input[@placeholder='Username']    20s
+
+    Input Text    xpath=//input[@placeholder='Username']    ${username}
+    Input Text    xpath=//input[@placeholder='Password']    ${password}
+
+    Wait Until Element Is Enabled       xpath=//button[contains(.,'Login')]    10s
+    Click Button   xpath=//button[contains(.,'Login')]
