@@ -1,58 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2026-04-22T11:38:12.277589" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2026-04-22T14:11:57.822157" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="C:\Users\LR Technologies\robotframework-orangehrm-tests\robotframework-orangehrm-tests\tests">
 <suite id="s1-s1" name="Test Login" source="C:\Users\LR Technologies\robotframework-orangehrm-tests\robotframework-orangehrm-tests\tests\test_login.robot">
-<test id="s1-s1-t1" name="Login Valid User" line="5">
-<kw name="Open OrangeHRM Login Page" owner="login_keywords">
+<test id="s1-s1-t1" name="Login Valid User" line="6">
+<kw name="Open Login Page" owner="login_page">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-04-22T11:38:12.533853" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<msg time="2026-04-22T14:11:58.178913" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
 <arg>${URL}</arg>
-<arg>${BROWSER}</arg>
+<arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-04-22T11:38:12.533627" elapsed="6.043041"/>
+<status status="PASS" start="2026-04-22T14:11:58.178397" elapsed="3.610264"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-04-22T11:38:18.577047" elapsed="0.040328"/>
+<status status="PASS" start="2026-04-22T14:12:01.788862" elapsed="0.037121"/>
 </kw>
-<status status="PASS" start="2026-04-22T11:38:12.533031" elapsed="6.084871"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Username']</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-04-22T14:12:01.826202" elapsed="1.561076"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@placeholder='Username']</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-22T14:12:03.387584" elapsed="0.030340"/>
+</kw>
+<status status="PASS" start="2026-04-22T14:11:58.176873" elapsed="5.241196"/>
 </kw>
 <kw name="Login With Credentials" owner="login_keywords">
+<kw name="Enter Username" owner="login_page">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${USERNAME_INPUT}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-04-22T11:38:18.619341" elapsed="4.313817"/>
+<status status="PASS" start="2026-04-22T14:12:03.419317" elapsed="0.022629"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-22T11:38:22.933550" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@placeholder='Username']'.</msg>
+<msg time="2026-04-22T14:12:03.442636" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@placeholder='Username']'.</msg>
 <arg>${USERNAME_INPUT}</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-22T11:38:22.933328" elapsed="0.105434"/>
+<status status="PASS" start="2026-04-22T14:12:03.442234" elapsed="0.123755"/>
 </kw>
+<arg>${username}</arg>
+<status status="PASS" start="2026-04-22T14:12:03.418976" elapsed="0.147227"/>
+</kw>
+<kw name="Enter Password" owner="login_page">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-04-22T11:38:23.039343" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@placeholder='Password']'.</msg>
+<msg time="2026-04-22T14:12:03.567367" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@placeholder='Password']'.</msg>
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-22T11:38:23.039011" elapsed="0.082816"/>
+<status status="PASS" start="2026-04-22T14:12:03.567022" elapsed="0.102600"/>
 </kw>
+<arg>${password}</arg>
+<status status="PASS" start="2026-04-22T14:12:03.566467" elapsed="0.103282"/>
+</kw>
+<kw name="Click Login" owner="login_page">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-04-22T11:38:23.122235" level="INFO">Clicking button 'xpath=//button[contains(.,'Login')]'.</msg>
+<msg time="2026-04-22T14:12:03.670337" level="INFO">Clicking button 'xpath=//button[contains(.,'Login')]'.</msg>
 <arg>${LOGIN_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-04-22T11:38:23.122019" elapsed="0.083330"/>
+<status status="PASS" start="2026-04-22T14:12:03.670159" elapsed="0.082720"/>
+</kw>
+<status status="PASS" start="2026-04-22T14:12:03.669926" elapsed="0.083112"/>
 </kw>
 <arg>Admin</arg>
 <arg>admin123</arg>
-<status status="PASS" start="2026-04-22T11:38:18.618857" elapsed="4.586604"/>
+<status status="PASS" start="2026-04-22T14:12:03.418546" elapsed="0.334566"/>
 </kw>
-<status status="PASS" start="2026-04-22T11:38:12.532096" elapsed="10.673650"/>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-22T14:12:11.036507" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-22T14:12:03.753848" elapsed="7.282778"/>
+</kw>
+<status status="PASS" start="2026-04-22T14:11:58.175193" elapsed="12.861754"/>
 </test>
-<status status="PASS" start="2026-04-22T11:38:12.307970" elapsed="10.898341"/>
+<status status="PASS" start="2026-04-22T14:11:57.860018" elapsed="13.178530"/>
 </suite>
-<status status="PASS" start="2026-04-22T11:38:12.280881" elapsed="10.926165"/>
+<status status="PASS" start="2026-04-22T14:11:57.824544" elapsed="13.215154"/>
 </suite>
 <statistics>
 <total>
