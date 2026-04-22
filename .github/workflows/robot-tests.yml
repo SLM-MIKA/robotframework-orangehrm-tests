@@ -23,13 +23,25 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # ==============================
+      # SYSTEM DEPENDENCIES (FIX UBUNTU 24.04)
+      # ==============================
       - name: Install system dependencies
         run: |
+<<<<<<< HEAD
     sudo apt-get update
     sudo apt-get install -y wget unzip
     sudo apt-get install -y libnss3 libxi6 libgbm-dev
     sudo apt-get install -y libasound2t64
+=======
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          sudo apt-get install -y libnss3 libxi6 libgbm-dev libasound2t64
+>>>>>>> 9db10d0 (Update CI workflow)
 
+      # ==============================
+      # INSTALL GOOGLE CHROME
+      # ==============================
       - name: Install Google Chrome
         run: |
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -38,9 +50,15 @@ jobs:
       - name: Verify Chrome version
         run: google-chrome --version
 
+      # ==============================
+      # RUN TESTS
+      # ==============================
       - name: Run Robot Framework tests
         run: robot -d results tests/
 
+      # ==============================
+      # UPLOAD REPORTS
+      # ==============================
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
