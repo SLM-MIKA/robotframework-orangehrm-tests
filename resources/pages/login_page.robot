@@ -7,10 +7,13 @@ ${URL}    https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 
 *** Keywords ***
 Open Login Page
-    Open Browser    ${URL}    chrome
-    Maximize Browser Window
-    Wait Until Page Contains Element    xpath=//input[@placeholder='Username']    20s
-    Wait Until Element Is Visible       xpath=//input[@placeholder='Username']    20s
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --headless=new
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --window-size=1920,1080
+    Open Browser    ${URL}    chrome    options=${options}
 
 Enter Username
     [Arguments]    ${username}
