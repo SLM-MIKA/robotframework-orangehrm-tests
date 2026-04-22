@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.0 on win32)" generated="2026-04-22T11:38:12.277589" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\LR Technologies\robotframework-orangehrm-tests\robotframework-orangehrm-tests\tests">
+<suite id="s1-s1" name="Test Login" source="C:\Users\LR Technologies\robotframework-orangehrm-tests\robotframework-orangehrm-tests\tests\test_login.robot">
+<test id="s1-s1-t1" name="Login Valid User" line="5">
+<kw name="Open OrangeHRM Login Page" owner="login_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-22T11:38:12.533853" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-04-22T11:38:12.533627" elapsed="6.043041"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-04-22T11:38:18.577047" elapsed="0.040328"/>
+</kw>
+<status status="PASS" start="2026-04-22T11:38:12.533031" elapsed="6.084871"/>
+</kw>
+<kw name="Login With Credentials" owner="login_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_INPUT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-22T11:38:18.619341" elapsed="4.313817"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-22T11:38:22.933550" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@placeholder='Username']'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-22T11:38:22.933328" elapsed="0.105434"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-22T11:38:23.039343" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@placeholder='Password']'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-22T11:38:23.039011" elapsed="0.082816"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-04-22T11:38:23.122235" level="INFO">Clicking button 'xpath=//button[contains(.,'Login')]'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-22T11:38:23.122019" elapsed="0.083330"/>
+</kw>
+<arg>Admin</arg>
+<arg>admin123</arg>
+<status status="PASS" start="2026-04-22T11:38:18.618857" elapsed="4.586604"/>
+</kw>
+<status status="PASS" start="2026-04-22T11:38:12.532096" elapsed="10.673650"/>
+</test>
+<status status="PASS" start="2026-04-22T11:38:12.307970" elapsed="10.898341"/>
+</suite>
+<status status="PASS" start="2026-04-22T11:38:12.280881" elapsed="10.926165"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="0" skip="0">Tests</stat>
+<stat name="Test Login" id="s1-s1" pass="1" fail="0" skip="0">Tests.Test Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
